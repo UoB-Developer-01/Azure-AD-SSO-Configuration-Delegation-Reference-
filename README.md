@@ -1,19 +1,6 @@
 # Azure-AD-SSO-Configuration-Delegation-Reference-
 
-Yes — in Microsoft Entra ID (formerly Azure AD), you can delegate application management so that developers can create and manage **only the applications they own/create**, including SSO configuration for those applications. ([Microsoft Learn][1])
-
-The typical model is:
-
-* Allow selected developers to register applications
-* They automatically become the **owner** of the app registration and enterprise application
-* Owners can manage:
-
-  * SSO configuration
-  * User assignments
-  * Provisioning
-  * Certificates/secrets
-  * Other owners
-* But only for applications they own, not all tenant applications ([Microsoft Learn][1])
+In Microsoft Entra ID (formerly Azure AD), you can delegate application management so that developers can create and manage **only the applications they own/create**, including SSO configuration for those applications, which is a very common practice in modern enterprises. 
 
 A common secure setup is:
 
@@ -27,25 +14,11 @@ A common secure setup is:
 Key distinction:
 
 * **Application Owner** → scoped to specific owned apps
-* **Application Administrator / Cloud Application Administrator** → can manage all apps in the tenant ([Microsoft Learn][2])
+* **Application Administrator / Cloud Application Administrator** → can manage all apps in the tenant 
 
 For SSO specifically:
 
-* App owners can configure SAML/OIDC SSO for their owned enterprise applications. ([Microsoft Learn][1])
-
-There are a few important caveats:
-
-1. App owners can potentially elevate privileges indirectly if the app itself has powerful permissions. Microsoft explicitly warns about this. ([Microsoft Learn][3])
-
-2. Admin consent is tenant-wide, not owner-scoped.
-   If an app receives admin consent for powerful APIs, the effect can extend beyond just that developer’s users unless assignment restrictions are enforced. ([Reddit][4])
-
-3. Best practice is to:
-
-   * Require at least 2 owners per app
-   * Maintain governance/inventory
-   * Review app permissions regularly
-   * Restrict who can grant admin consent ([Microsoft Learn][1])
+* App owners can configure SAML/OIDC SSO for their owned enterprise applications.
 
 A very common enterprise pattern is:
 
@@ -67,12 +40,9 @@ Relevant Microsoft documentation:
 * [Delegate app registration permissions in Entra ID](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/delegate-app-roles?utm_source=chatgpt.com)
 * [Default user permissions in Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/users-default-permissions?utm_source=chatgpt.com)
 
-[1]: https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/overview-assign-app-owners?utm_source=chatgpt.com "Overview of Enterprise Application Ownership - Microsoft Entra ID | Microsoft Learn"
-[2]: https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/delegate-app-roles?utm_source=chatgpt.com "Delegate application management administrator permissions - Microsoft Entra ID | Microsoft Learn"
-[3]: https://learn.microsoft.com/bs-latn-ba/entra/identity/enterprise-apps/overview-assign-app-owners?utm_source=chatgpt.com "Overview of Enterprise Application Ownership - Microsoft Entra ID | Microsoft Learn"
-[4]: https://www.reddit.com/r/entra/comments/1rjxsnq/entra_id_why_admin_consent_is_not_userscoped_and/?utm_source=chatgpt.com "Entra ID – Why Admin Consent Is Not User-Scoped (and how to restrict access properly)"
-
 # Walkthrough
+
+This reference provides a 10 step walkthrough to achieve the above:
 
 ## Goal
 

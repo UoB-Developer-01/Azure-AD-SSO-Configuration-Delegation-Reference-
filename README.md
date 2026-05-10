@@ -1,4 +1,7 @@
+
 # Azure-AD-SSO-Configuration-Delegation-Reference-
+
+![alt text](image.png)
 
 In Microsoft Entra ID (formerly Azure AD), you can delegate application management so that developers can create and manage **only the applications they own/create**, including SSO configuration for those applications, which is a very common practice in modern enterprises. 
 
@@ -430,12 +433,3 @@ Avoid giving developers:
 These roles can manage ALL tenant apps.
 
 ---
-
-# Microsoft Documentation
-
-* [Entra app ownership documentation](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/overview-assign-app-owners?utm_source=chatgpt.com)
-* [Delegate app registration permissions](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/delegate-app-roles?utm_source=chatgpt.com)
-* [Admin consent configuration](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/configure-admin-consent-workflow?utm_source=chatgpt.com)
-* [Default user permissions in Entra ID](https://learn.microsoft.com/en-us/entra/fundamentals/users-default-permissions?utm_source=chatgpt.com)
-
-
